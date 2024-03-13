@@ -7,6 +7,7 @@ import { Sling as Hamburger } from "hamburger-react";
 import { useEffect, useState } from "react";
 import { useCart } from "@/app/context";
 import { Toaster } from 'react-hot-toast';
+import Image from "next/image";
 export default function Navbar() {
     const [cartIsOpen, cartSetOpen] = useState(false);
     const [isOpen, setOpen] = useState(false);
@@ -75,8 +76,8 @@ export default function Navbar() {
         <div className={`sticky bg-elbone top-0  z-40`}>
             <Toaster />
             <div className="pt-3 flex mx-auto max-w-[1360px] px-[10px] items-center justify-between sm:justify-between">
-                <Link href="/" className="font-black text-2xl py-3">
-                    Lapitskiy
+                <Link href="/" className="font-black text-2xl pt-3">
+                    <Image alt={'Lapitskiy'} width={100} height={50} src={'/logo.png'}></Image>
                 </Link>
                 <div className="gap-2 lg:gap-4 items-center hidden md:flex">
                     <Link

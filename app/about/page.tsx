@@ -1,10 +1,11 @@
+import Image from "next/image";
 export default function About() {
     return (
         <div className="flex flex-col gap-16">
             <h1 className="text-[52px] uppercase font-black text-center mt-4">О нас</h1>
             <div className="flex flex-col py-8 bg-[#f7f7fa] shadow-xl items-center rounded-xl gap-8">
 
-                <h1 className="text-[48px] font-black">Lapitskiy</h1>
+                <h1 className="text-[48px] font-black"><Image src={'/logo.png'} width={200} height={100} alt="Lapitskiy"></Image></h1>
                 <p className="w-[80%] md:w-[50%] text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Autem dolores, natus, vero tenetur quibusdam excepturi, ex eligendi architecto obcaecati nemo enim
                     voluptates voluptas quaerat? Animi, deserunt doloremque? Autem, minus laborum.Lorem ipsum dolor sit

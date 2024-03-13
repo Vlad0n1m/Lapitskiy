@@ -3,7 +3,7 @@ import Link from "next/link"
 export default function Taplink() {
     return (
         <div
-            className="relative bg-cover bg-center rounded-xl p-4 sm:p-8 flex flex-col justify-between gap-16 sm:min-h-max max-h-[700px] sm:h-max h-[85dvh]">
+            className="relative bg-cover bg-center rounded-xl p-4 sm:p-8 flex flex-col justify-between gap-16 sm:min-h-max max-h-[700px] sm:h-max h-[85mvh]">
             <Image style={{filter: 'brightness(0.3)'}} src='/herobg.webp' objectFit={"cover"} layout={"fill"} alt="Чаи"
                    className="rounded-xl z-0 "/>
             <div className="flex flex-between">

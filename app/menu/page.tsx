@@ -28,14 +28,113 @@ export default function MenuPage() {
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/products?populate=image`)
-            .then(response => {
-                // console.log(response.data.data);
-                setProducts(response.data.data); // Устанавливаем полученные товары
-            })
-            .catch(error => {
-                // console.error('Error fetching products:', error);
-            });
+        // axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/products?populate=image`)
+        //     .then(response => {
+        //         console.log(response.data.data);
+        //         setProducts(response.data.data); // Устанавливаем полученные товары
+        //     })
+        //     .catch(error => {
+        //         // console.error('Error fetching products:', error);
+        //     });
+        setProducts([
+            {
+                "id": 1,
+                "attributes": {
+                    "name": "Coffe",
+                    "description": "description",
+                    "slug": "coffe",
+                    "createdAt": "2024-02-27T10:36:29.914Z",
+                    "updatedAt": "2024-03-13T11:17:40.086Z",
+                    "publishedAt": "2024-02-27T10:36:30.627Z",
+                    "sirop_price": 100,
+                    "small_price": 1100,
+                    "medium_price": 1300,
+                    "big_price": 1500,
+                    "image": {
+                        "data": {
+                            "id": 2,
+                            "attributes": {
+                                "name": "cup.png",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 500,
+                                "height": 454,
+                                "formats": {
+                                    "thumbnail": {
+                                        "name": "cup.png",
+                                        "ext": ".png",
+                                        "mime": "image/png",
+                                        "path": null,
+                                        "width": 172,
+                                        "height": 156,
+                                        "size": 20.66,
+                                        "url": "/cup.png"
+                                    }
+                                },
+                                "hash": "image_removebg_preview_374291a18b",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "size": 32.04,
+                                "url": "/cup.png",
+                                "previewUrl": null,
+                                "provider": "local",
+                                "provider_metadata": null,
+                                "createdAt": "2024-02-27T10:55:29.945Z",
+                                "updatedAt": "2024-03-13T11:17:38.604Z"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "attributes": {
+                    "name": "tea",
+                    "description": "desc",
+                    "slug": "tea",
+                    "createdAt": "2024-03-02T13:27:46.291Z",
+                    "updatedAt": "2024-03-02T13:27:58.071Z",
+                    "publishedAt": "2024-03-02T13:27:58.068Z",
+                    "sirop_price": 100,
+                    "small_price": 1000,
+                    "medium_price": 1400,
+                    "big_price": 1500,
+                    "image": {
+                        "data": {
+                            "id": 1,
+                            "attributes": {
+                                "name": "cup.png",
+                                "alternativeText": null,
+                                "caption": null,
+                                "width": 204,
+                                "height": 192,
+                                "formats": {
+                                    "thumbnail": {
+                                        "name": "cup.png",
+                                        "ext": ".png",
+                                        "mime": "image/png",
+                                        "path": null,
+                                        "width": 166,
+                                        "height": 156,
+                                        "size": 4.69,
+                                        "url": "/cup.png"
+                                    }
+                                },
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "size": 5.08,
+                                "url": "/cup.png",
+                                "previewUrl": null,
+                                "provider": "local",
+                                "provider_metadata": null,
+                                "createdAt": "2024-02-27T10:36:27.248Z",
+                                "updatedAt": "2024-03-02T13:27:27.383Z"
+                            }
+                        }
+                    }
+                }
+            }
+        ])
     }, []);
 
     return (
@@ -65,7 +164,8 @@ export default function MenuPage() {
                         medium_price={product.attributes.medium_price}
                         big_price={product.attributes.big_price}
                         sirop_price={product.attributes.sirop_price}
-                        image_url={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${product.attributes.image.data.attributes.url}`}
+                        // image_url={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${product.attributes.image.data.attributes.url}`}
+                        image_url={`${product.attributes.image.data.attributes.url}`}
                         slug={product.attributes.slug}
                         qty={1}
                     />
