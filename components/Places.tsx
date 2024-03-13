@@ -1,6 +1,6 @@
 'use client'
 import {useState} from "react"
-
+import Link from "next/link"
 export default function Places() {
     const [chosenCity, setChosenCity] = useState(1)
     const handleCityChoosing = (cityID: any) => {
@@ -30,9 +30,11 @@ export default function Places() {
                 </div>
                 <div
                     className={`${chosenCity == 1 ? 'flex' : 'hidden'} bg-black rounded-xl w-full md:w-[30%] text-white flex flex-col p-4 gap-2`}>
-                    <p>ул. Набережная, 25А</p>
-                    <p>ул. Букетова, 29</p>
-                    <p>ул. Жамбыла Жабаева, 142Б</p>
+                    <Link target="blank" href={'https://go.2gis.com/4b03d'}>ул. Набережная, 25А</Link>
+                    <Link target="blank" href={'https://go.2gis.com/bruu55'}>ул. Букетова, 29</Link>
+                    <Link target="blank" href={'https://go.2gis.com/azkl7'}>ул. Жамбыла Жабаева, 106</Link>
+                    <Link target="blank" href={'https://go.2gis.com/7dimu'}>ул. Конституции Казахстана, 21</Link>
+                    <Link target="blank" href={'https://go.2gis.com/czvee'}>ул. Александра Пушкина 88</Link>
                 </div>
                 <div
                     className={`${chosenCity == 2 ? 'flex' : 'hidden'} bg-black rounded-xl w-full md:w-[30%] text-white flex flex-col p-4 gap-2`}>

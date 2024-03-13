@@ -1,5 +1,5 @@
 import Image from "next/image"
-
+import Link from "next/link"
 export default function Taplink() {
     return (
         <div
@@ -18,48 +18,48 @@ export default function Taplink() {
                 <div
                     className="flex flex-col md:flex-row gap-2 sm:gap-4 w-full sm:w-max h-full justify-between sm:justify-end">
                     <div className="flex gap-2 sm:gap-4 h-full sm:h-max">
-                        <div
-                            className="shadow-xl h-full  shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
+                        <Link href={'/menu'}
+                            className="shadow-xl shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
                             <Image style={{filter: 'brightness(0.65)'}} src='/coffe.webp' objectFit={"cover"}
                                    layout={"fill"} alt="Чаи" className="rounded-xl"/>
 
-                            <p className="z-20">Кофе</p></div>
-                        <div
-                            className="shadow-xl h-full shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
+                            <p className="z-20">Кофе</p></Link>
+                        <Link href={'/menu'}
+                            className="shadow-xl shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
                             <Image style={{filter: 'brightness(0.65)'}} src='/macaroon-mini.webp' objectFit={"cover"}
                                    layout={"fill"} alt="Чаи" className="rounded-xl"/>
 
-                            <p className="z-20">Выпечка</p></div>
+                            <p className="z-20">Выпечка</p></Link>
                     </div>
                     <div className="flex gap-2 sm:gap-4 h-full sm:h-max">
 
-                        <div
-                            className="shadow-xl h-full shadow-white/20 transition-all hover:-rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px]  lg:w-[120px] lg:h-[120px] justify-end font-black">
+                        <Link href={'/menu'}
+                            className="shadow-xl shadow-white/20 transition-all hover:-rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px]  lg:w-[120px] lg:h-[120px] justify-end font-black">
                             <Image style={{filter: 'brightness(0.65)'}} src='/milkshake.webp' objectFit={"cover"}
                                    layout={"fill"} alt="Чаи" className="rounded-xl"/>
 
-                            <p className="z-20">Напитки</p></div>
-                        <div
-                            className="shadow-xl h-full shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
+                            <p className="z-20">Напитки</p></Link>
+                        <Link href={'/menu'}
+                            className="shadow-xl shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
                             <Image style={{filter: 'brightness(0.65)'}} src='/tea.webp' objectFit={"cover"}
                                    layout={"fill"} alt="Чаи" className="rounded-xl"/>
 
-                            <p className="z-20">Чаи</p></div>
+                            <p className="z-20">Чаи</p></Link>
                     </div>
                     <div className="flex gap-2 sm:gap-4 h-full sm:h-max">
 
-                        <div
-                            className="shadow-xl h-full shadow-white/20 transition-all hover:-rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
+                        <Link href={'/menu'}
+                            className="shadow-xl shadow-white/20 transition-all hover:-rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px] lg:w-[120px] lg:h-[120px] justify-end font-black">
                             <Image style={{filter: 'brightness(0.65)'}} src='/rahat.webp' objectFit={"cover"}
                                    layout={"fill"} alt="Чаи" className="rounded-xl"/>
 
-                            <p className="z-20 leading-none">Уник<br/>альное</p></div>
-                        <div
-                            className="shadow-xl h-full shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px]  lg:w-[120px] lg:h-[120px] justify-end font-black">
+                            <p className="z-20 leading-none">Уник<br/>альное</p></Link>
+                        <Link href={'/menu'}
+                            className="shadow-xl shadow-white/20 transition-all hover:rotate-6 relative flex cursor-pointer flex-col p-2 rounded-xl text-white w-full h-[120px] sm:h-[100px] sm:w-[100px]  lg:w-[120px] lg:h-[120px] justify-end font-black">
                             <Image style={{filter: 'brightness(0.65)'}} src='/shipping.webp' objectFit={"cover"}
                                    layout={"fill"} alt="Чаи" className="rounded-xl"/>
 
-                            <p className="z-20">Доставка</p></div>
+                            <p className="z-20">Доставка</p></Link>
                     </div>
                 </div>
             </div>

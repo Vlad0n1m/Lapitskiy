@@ -65,7 +65,7 @@ export default function MenuPage() {
                         medium_price={product.attributes.medium_price}
                         big_price={product.attributes.big_price}
                         sirop_price={product.attributes.sirop_price}
-                        image_url={`${product.attributes.image.data.attributes.url}`}
+                        image_url={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${product.attributes.image.data.attributes.url}`}
                         slug={product.attributes.slug}
                         qty={1}
                     />
