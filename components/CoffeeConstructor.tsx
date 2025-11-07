@@ -524,7 +524,7 @@ export default function CoffeeConstructor({ product, isOpen, onClose, onUpdate, 
                     )}
 
                     <DrawerFooter className="flex flex-row ml-4 mr-2 justify-between items-center bg-black/10 border border-black/20 backdrop-blur-lg rounded-full shadow-lg px-3 py-2">
-                        <div className="text-base font-bold">
+                        <div className="text-base font-bold text-black">
                             {finalPrice} ₸
                         </div>
                         <button
