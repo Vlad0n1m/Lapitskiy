@@ -8,8 +8,11 @@ module.exports = {
             protocol: 'https', hostname: 'growing-bloom-a96956901b.strapiapp.com',
         }, {
             protocol: 'http', hostname: 'growing-bloom-a96956901b.strapiapp.com',
-        },{
+        }, {
             protocol: 'https', hostname: 'growing-bloom-a96956901b.media.strapiapp.com',
+        }, {
+            protocol: 'https',
+            hostname: '**.public.blob.vercel-storage.com',
         }],
     },
 }

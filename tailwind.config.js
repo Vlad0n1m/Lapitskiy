@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: ['class'],
     content: [
         './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,31 +10,83 @@ module.exports = {
         './src/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
-        screens: {
-            sm: '480px',
-            md: '768px',
-            lg: '976px',
-            xl: '1440px',
-        },
-        fontFamily: {
-            sans: ['Graphik', 'sans-serif'],
-            serif: ['Merriweather', 'serif'],
-            gilroy: ['Gilroy', 'serif'],
-        },
-        extend: {
-            colors: {
-                'elbone': '#FFFFF1',
-                'black': '#000000',
-                'white': '#ffffff',
-            },
-            spacing: {
-                '128': '32rem',
-                '144': '36rem',
-            },
-            borderRadius: {
-                'lg': '16px',
-                '4xl': '2rem',
-            }
-        }
-    }
+    	screens: {
+    		sm: '480px',
+    		md: '768px',
+    		lg: '976px',
+    		xl: '1440px'
+    	},
+    	fontFamily: {
+    		sans: [
+    			'Graphik',
+    			'sans-serif'
+    		],
+    		serif: [
+    			'Merriweather',
+    			'serif'
+    		],
+    		gilroy: [
+    			'Gilroy',
+    			'serif'
+    		]
+    	},
+    	extend: {
+    		colors: {
+    			elbone: '#FFFFF1',
+    			black: '#000000',
+    			white: '#ffffff',
+    			background: 'hsl(var(--background))',
+    			foreground: 'hsl(var(--foreground))',
+    			card: {
+    				DEFAULT: 'hsl(var(--card))',
+    				foreground: 'hsl(var(--card-foreground))'
+    			},
+    			popover: {
+    				DEFAULT: 'hsl(var(--popover))',
+    				foreground: 'hsl(var(--popover-foreground))'
+    			},
+    			primary: {
+    				DEFAULT: 'hsl(var(--primary))',
+    				foreground: 'hsl(var(--primary-foreground))'
+    			},
+    			secondary: {
+    				DEFAULT: 'hsl(var(--secondary))',
+    				foreground: 'hsl(var(--secondary-foreground))'
+    			},
+    			muted: {
+    				DEFAULT: 'hsl(var(--muted))',
+    				foreground: 'hsl(var(--muted-foreground))'
+    			},
+    			accent: {
+    				DEFAULT: 'hsl(var(--accent))',
+    				foreground: 'hsl(var(--accent-foreground))'
+    			},
+    			destructive: {
+    				DEFAULT: 'hsl(var(--destructive))',
+    				foreground: 'hsl(var(--destructive-foreground))'
+    			},
+    			border: 'hsl(var(--border))',
+    			input: 'hsl(var(--input))',
+    			ring: 'hsl(var(--ring))',
+    			chart: {
+    				'1': 'hsl(var(--chart-1))',
+    				'2': 'hsl(var(--chart-2))',
+    				'3': 'hsl(var(--chart-3))',
+    				'4': 'hsl(var(--chart-4))',
+    				'5': 'hsl(var(--chart-5))'
+    			}
+    		},
+    		spacing: {
+    			'128': '32rem',
+    			'144': '36rem'
+    		},
+    		borderRadius: {
+    			lg: 'var(--radius)',
+    			'4xl': '2rem',
+    			md: 'calc(var(--radius) - 2px)',
+    			sm: 'calc(var(--radius) - 4px)'
+    		}
+    	}
+    },
+    plugins: [require("tailwindcss-animate")]
 }

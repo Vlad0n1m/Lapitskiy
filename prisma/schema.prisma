@@ -1,0 +1,276 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ============================================
+// Enums
+// ============================================
+
+enum OrderStatus {
+  new
+  accepted
+  in_progress
+  ready
+  on_the_way
+  delivered
+  picked_up
+  cancelled
+}
+
+enum PaymentMethod {
+  cash
+  card
+  kaspi
+}
+
+enum DeliveryMethod {
+  pickup
+  delivery
+}
+
+enum ChangedBy {
+  staff
+  system
+  customer
+}
+
+enum CategorySlug {
+  coffe
+  tea
+  croisant
+  macaroon
+  rahat
+  cheese
+}
+
+// ============================================
+// Models
+// ============================================
+
+model Order {
+  id                String         @id @default(uuid()) @db.Uuid
+  orderNumber       String         @unique @map("order_number")
+  telegramUserId    BigInt?        @map("telegram_user_id")
+  telegramUsername  String?        @map("telegram_username")
+  phone             String
+  totalPrice        Int            @map("total_price")
+  paymentMethod     PaymentMethod  @map("payment_method")
+  deliveryMethod    DeliveryMethod @map("delivery_method")
+  deliveryAddress   String?        @map("delivery_address")
+  comment           String?
+  status            OrderStatus    @default(new)
+  telegramMessageId BigInt?        @map("telegram_message_id")
+  createdAt         DateTime       @default(now()) @map("created_at")
+  updatedAt         DateTime       @updatedAt @map("updated_at")
+
+  // Relations
+  items         OrderItem[]
+  statusHistory OrderStatusHistory[]
+
+  @@index([status])
+  @@index([createdAt(sort: Desc)])
+  @@index([telegramUserId])
+  @@index([phone])
+  @@map("orders")
+}
+
+model OrderItem {
+  id          String   @id @default(uuid()) @db.Uuid
+  orderId     String   @map("order_id") @db.Uuid
+  productName String   @map("product_name")
+  size        String
+  volumeMl    Int?     @map("volume_ml")
+  sirop       String?
+  syrupId     String?  @map("syrup_id") @db.Uuid
+  milkId      String?  @map("milk_id") @db.Uuid
+  extraIds    String?  @map("extra_ids") // JSON array of extra IDs
+  temperature String? // "hot" | "cold"
+  quantity    Int
+  price       Int
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  // Relations
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@map("order_items")
+}
+
+model OrderStatusHistory {
+  id        String    @id @default(uuid()) @db.Uuid
+  orderId   String    @map("order_id") @db.Uuid
+  oldStatus String?   @map("old_status")
+  newStatus String    @map("new_status")
+  changedBy ChangedBy @map("changed_by")
+  changedAt DateTime  @default(now()) @map("changed_at")
+  comment   String?
+
+  // Relations
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([changedAt(sort: Desc)])
+  @@map("order_status_history")
+}
+
+// ============================================
+// Menu Models
+// ============================================
+
+model Category {
+  id        String       @id @default(uuid()) @db.Uuid
+  name      String
+  slug      CategorySlug @unique
+  createdAt DateTime     @default(now()) @map("created_at")
+  updatedAt DateTime     @updatedAt @map("updated_at")
+
+  // Relations
+  products Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id            String   @id @default(uuid()) @db.Uuid
+  name          String
+  price         Int
+  imageUrl      String?  @map("image_url")
+  isActive      Boolean  @default(true) @map("is_active")
+  categoryId    String   @map("category_id") @db.Uuid
+  allowHot      Boolean  @default(true) @map("allow_hot")
+  allowCold     Boolean  @default(true) @map("allow_cold")
+  hotSurcharge  Int      @default(0) @map("hot_surcharge")
+  coldSurcharge Int      @default(0) @map("cold_surcharge")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  category Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  sizes    ProductSize[]
+  syrups   ProductSyrup[]
+  milks    ProductMilk[]
+  extras   ProductExtra[]
+
+  @@index([categoryId])
+  @@map("products")
+}
+
+// ============================================
+// Product Options Models
+// ============================================
+
+model Syrup {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String   @unique
+  price     Int
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  products ProductSyrup[]
+
+  @@map("syrups")
+}
+
+model Milk {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String   @unique
+  price     Int
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  products ProductMilk[]
+
+  @@map("milks")
+}
+
+model Extra {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String   @unique
+  price     Int
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  products ProductExtra[]
+
+  @@map("extras")
+}
+
+model ProductSize {
+  id        String   @id @default(uuid()) @db.Uuid
+  productId String   @map("product_id") @db.Uuid
+  name      String
+  volumeMl  Int      @map("volume_ml")
+  price     Int
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@map("product_sizes")
+}
+
+model ProductSyrup {
+  productId String   @map("product_id") @db.Uuid
+  syrupId   String   @map("syrup_id") @db.Uuid
+  isEnabled Boolean  @default(true) @map("is_enabled")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  syrup   Syrup   @relation(fields: [syrupId], references: [id], onDelete: Cascade)
+
+  @@id([productId, syrupId])
+  @@index([productId])
+  @@index([syrupId])
+  @@map("product_syrups")
+}
+
+model ProductMilk {
+  productId String   @map("product_id") @db.Uuid
+  milkId    String   @map("milk_id") @db.Uuid
+  isEnabled Boolean  @default(true) @map("is_enabled")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  milk    Milk    @relation(fields: [milkId], references: [id], onDelete: Cascade)
+
+  @@id([productId, milkId])
+  @@index([productId])
+  @@index([milkId])
+  @@map("product_milks")
+}
+
+model ProductExtra {
+  productId String   @map("product_id") @db.Uuid
+  extraId   String   @map("extra_id") @db.Uuid
+  isEnabled Boolean  @default(true) @map("is_enabled")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  extra   Extra   @relation(fields: [extraId], references: [id], onDelete: Cascade)
+
+  @@id([productId, extraId])
+  @@index([productId])
+  @@index([extraId])
+  @@map("product_extras")
+}

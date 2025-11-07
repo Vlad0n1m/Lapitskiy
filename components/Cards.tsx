@@ -10,8 +10,8 @@ export default function Cards() {
                     <div className="flex flex-col gap-2 w-full ">
                         <div
                             className="relative aspect-square bg-black w-full rounded-xl flex items-center justify-center pointer-events-none select-none">
-                            <Image style={{filter: 'brightness(0.65)'}} src='/tea.webp' objectFit={"cover"}
-                                   layout={"fill"} alt="Чаи" className="rounded-xl"/>
+                            <Image style={{ filter: 'brightness(0.65)' }} src='/tea.webp' fill
+                                alt="Чаи" className="rounded-xl" style={{ objectFit: 'cover' }} />
                             <p className="text-white text-[30px] z-20 select-none">tea</p>
                         </div>
                         <h2 className="font-black text-[24px]">Чаи</h2>
@@ -21,11 +21,11 @@ export default function Cards() {
                             <div className="flex items-center justify-center gap-2">Посмотреть <div
                                 className="w-[24px] h-[24px]">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" strokeWidth="2"
+                                            strokeLinecap="round" strokeLinejoin="round"></path>
                                     </g>
                                 </svg>
                             </div></div>
@@ -35,8 +35,8 @@ export default function Cards() {
                     <div className="flex flex-col gap-2 w-full ">
                         <div
                             className="relative aspect-square bg-black w-full rounded-xl flex items-center justify-center pointer-events-none select-none">
-                            <Image style={{filter: 'brightness(0.65)'}} src='/croisant-card.webp' objectFit={"cover"}
-                                   layout={"fill"} alt="Чаи" className="rounded-xl"/>
+                            <Image style={{ filter: 'brightness(0.65)' }} src='/croisant-card.webp' fill
+                                alt="Чаи" className="rounded-xl" style={{ objectFit: 'cover' }} />
                             <p className="text-white text-[30px] z-20 select-none">croissant</p>
                         </div>
                         <h2 className="font-black text-[24px]">Круассаны</h2>
@@ -45,11 +45,11 @@ export default function Cards() {
                             <div className="flex items-center justify-center gap-2">Посмотреть <div
                                 className="w-[24px] h-[24px]">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" strokeWidth="2"
+                                            strokeLinecap="round" strokeLinejoin="round"></path>
                                     </g>
                                 </svg>
                             </div></div>
@@ -61,8 +61,8 @@ export default function Cards() {
                     <div className="flex flex-col gap-2 w-full ">
                         <div
                             className="relative aspect-square bg-black w-full rounded-xl flex items-center justify-center pointer-events-none select-none">
-                            <Image style={{filter: 'brightness(0.65)'}} src='/rahat.webp' objectFit={"cover"}
-                                   layout={"fill"} alt="Чаи" className="rounded-xl"/>
+                            <Image style={{ filter: 'brightness(0.65)' }} src='/rahat.webp' fill
+                                alt="Чаи" className="rounded-xl" style={{ objectFit: 'cover' }} />
                             <p className="text-white text-[30px] z-20 select-none">unique</p>
                         </div>
                         <h2 className="font-black text-[24px]">Уникальные вкусняхи</h2>
@@ -72,12 +72,12 @@ export default function Cards() {
                             <div className="flex items-center justify-center gap-2">Посмотреть
                                 <div className="w-[24px] h-[24px]">
                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                           stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round"
+                                            strokeLinejoin="round"></g>
                                         <g id="SVGRepo_iconCarrier">
-                                            <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2"
-                                                  stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" strokeWidth="2"
+                                                strokeLinecap="round" strokeLinejoin="round"></path>
                                         </g>
                                     </svg>
                                 </div>
@@ -88,8 +88,8 @@ export default function Cards() {
                     <div className="flex flex-col gap-2 w-full ">
                         <div
                             className="relative aspect-square bg-black w-full rounded-xl flex items-center justify-center pointer-events-none select-none">
-                            <Image style={{filter: 'brightness(0.65)'}} src='/cheese.webp' objectFit={"cover"}
-                                   layout={"fill"} alt="Чаи" className="rounded-xl"/>
+                            <Image style={{ filter: 'brightness(0.65)' }} src='/cheese.webp' fill
+                                alt="Чаи" className="rounded-xl" style={{ objectFit: 'cover' }} />
                             <p className="text-white text-[30px] z-20 ">secret</p>
                         </div>
                         <h2 className="font-black text-[24px]">Секретное меню</h2>
@@ -98,11 +98,11 @@ export default function Cards() {
                             <div className="flex items-center justify-center gap-2">Тссс... <div
                                 className="w-[24px] h-[24px]">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
-                                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#ffffff" strokeWidth="2"
+                                            strokeLinecap="round" strokeLinejoin="round"></path>
                                     </g>
                                 </svg>
                             </div></div>

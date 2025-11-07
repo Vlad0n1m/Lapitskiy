@@ -1,0 +1,24 @@
+{
+  "phone": "+77771234567",
+  "totalPrice": 2500,
+  "paymentMethod": "cash",
+  "deliveryMethod": "pickup",
+  "comment": "Тестовый заказ для проверки системы. Без сахара, пожалуйста!",
+  "products": [
+    {
+      "name": "Капучино",
+      "size": "medium",
+      "sirop": "Ванильный",
+      "qty": 2,
+      "final_price": 1000
+    },
+    {
+      "name": "Латте",
+      "size": "big",
+      "sirop": "Карамельный",
+      "qty": 1,
+      "final_price": 1500
+    }
+  ]
+}
+
